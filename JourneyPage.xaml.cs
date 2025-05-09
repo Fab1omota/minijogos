@@ -26,4 +26,9 @@ public partial class JourneyPage : ContentPage
     {
         await Shell.Current.GoToAsync("MiniJogo4");
     }
+    private async void OnRegisterClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("MenuPage");
+    }
+
 }
