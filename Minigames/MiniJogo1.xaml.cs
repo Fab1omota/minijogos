@@ -44,7 +44,7 @@ namespace Playza.Views
             string image = imageOptions[random.Next(imageOptions.Count)];
             int a = random.Next(1, 6);
             int b = random.Next(1, 6);
-            string op = new[] { "+", "-", "*" }[random.Next(3)];
+            string op = new[] { "+", "-" }[random.Next(2)];
 
             if (op == "-" && b > a)
                 (a, b) = (b, a);
@@ -53,7 +53,7 @@ namespace Playza.Views
             {
                 "+" => a + b,
                 "-" => a - b,
-                "*" => a * b,
+               // "*" => a * b,
                 _ => 0
             };
 
