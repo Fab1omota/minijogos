@@ -1,24 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Playza.Views.MiniJogo1"
-             BackgroundColor="#A8DADC">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="background.jpg">
 
     <Grid x:Name="MainGrid" Padding="10">
+        <Grid HorizontalOptions="Start" VerticalOptions="Start" Margin="5">
+            <ImageButton x:Name="PauseButton"
+                         Source="pause.png"
+                         BackgroundColor="Transparent"
+                         WidthRequest="50"
+                         HeightRequest="50"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Start"
+                         Margin="5"
+                         Clicked="OnPauseClicked"/>
+        </Grid>
 
-        <Button x:Name="PauseButton"
-                Text="⏸"
-                FontSize="24"
-                FontFamily="Fredoka"
-                BackgroundColor="#F1FAEE"
-                TextColor="#1D3557"
-                WidthRequest="50"
-                HeightRequest="50"
-                CornerRadius="25"
-                HorizontalOptions="Start"
-                VerticalOptions="Start"
-                Margin="5"
-                Clicked="OnPauseClicked"/>
-
+        <!-- Pergunta e opções -->
         <Frame CornerRadius="20"
                Padding="20"
                BackgroundColor="#1D3557"
@@ -90,6 +90,7 @@
             </Grid>
         </Frame>
 
+        <!-- Score final -->
         <Frame x:Name="ScorePanel"
                CornerRadius="20"
                Padding="20"
@@ -118,13 +119,13 @@
                        TextColor="#1D3557"
                        HorizontalOptions="Center"
                        Margin="0,10"/>
-                <Button Text="🔁 Jogar Novamente"
+                <Button Text="Jogar Novamente"
                         Clicked="OnRestartClicked"
                         BackgroundColor="#457B9D"
                         TextColor="White"
                         FontFamily="Fredoka"
                         CornerRadius="20"/>
-                <Button Text="🧹 Limpar Highscores"
+                <Button Text="Limpar Highscores"
                         Clicked="OnClearHighScoresClicked"
                         BackgroundColor="#E63946"
                         TextColor="White"
@@ -132,7 +133,41 @@
                         CornerRadius="20"/>
             </StackLayout>
         </Frame>
+        
+        <Frame x:Name="PauseMenu"
+               CornerRadius="20"
+               Padding="20"
+               BackgroundColor="#1D3557"
+               IsVisible="False"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               HasShadow="True"
+               ZIndex="20">
 
+            <StackLayout Spacing="20" HorizontalOptions="Center">
+                <Label Text="Parado"
+                       FontSize="36"
+                       FontFamily="Fredoka"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                <Button Text="Retomar"
+                        Clicked="OnResumeClicked"
+                        BackgroundColor="#457B9D"
+                        TextColor="White"
+                        FontFamily="Fredoka"
+                        CornerRadius="20"
+                        WidthRequest="200"/>
+                <Button Text="Sair"
+                        Clicked="OnExitClicked"
+                        BackgroundColor="#E63946"
+                        TextColor="White"
+                        FontFamily="Fredoka"
+                        CornerRadius="20"
+                        WidthRequest="200"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
     </Grid>
 </ContentPage>
 
