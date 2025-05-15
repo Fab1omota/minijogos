@@ -39,7 +39,7 @@ namespace Playza.Views
             currentQuestion++;
             FeedbackLabel.Text = "";
             ImagePanel.Children.Clear();
-            SetBackgroundGradient("#1D3557", "#1D3557");
+            //SetBackgroundGradient("#1D3557", "#1D3557");
 
             string image = imageOptions[random.Next(imageOptions.Count)];
             int a = random.Next(1, 6);
@@ -53,7 +53,6 @@ namespace Playza.Views
             {
                 "+" => a + b,
                 "-" => a - b,
-               // "*" => a * b,
                 _ => 0
             };
 
@@ -112,12 +111,12 @@ namespace Playza.Views
                 {
                     FeedbackLabel.Text = "Correto!";
                     score++;
-                    SetBackgroundGradient("#11998e", "#38ef7d");
+                    //SetBackgroundGradient("#11998e", "#38ef7d");
                 }
                 else
                 {
                     FeedbackLabel.Text = $"Errado! Era {correctAnswer}";
-                    SetBackgroundGradient("#cb2d3e", "#ef473a");
+                    //SetBackgroundGradient("#cb2d3e", "#ef473a");
                 }
 
                 DisableButtons();
@@ -144,19 +143,19 @@ namespace Playza.Views
             OptionButton3.IsEnabled = false;
         }
 
-        private void SetBackgroundGradient(string color1, string color2)
-        {
-            MainGrid.Background = new LinearGradientBrush
-            {
-                StartPoint = new Point(0, 0),
-                EndPoint = new Point(1, 1),
-                GradientStops = new GradientStopCollection
-                {
-                    new GradientStop(Color.FromArgb(color1), 0f),
-                    new GradientStop(Color.FromArgb(color2), 1f)
-                }
-            };
-        }
+//        private void SetBackgroundGradient(string color1, string color2)
+//        {
+//            MainGrid.Background = new LinearGradientBrush
+//            {
+//                StartPoint = new Point(0, 0),
+//                EndPoint = new Point(1, 1),
+//                GradientStops = new GradientStopCollection
+//                {
+//                    new GradientStop(Color.FromArgb(color1), 0f),
+//                    new GradientStop(Color.FromArgb(color2), 1f)
+//                }
+//            };
+//        }
 
         private void ShowScorePanel()
         {
@@ -193,11 +192,20 @@ namespace Playza.Views
 
         private void OnPauseClicked(object sender, EventArgs e)
         {
-            isPaused = !isPaused;
-            PauseButton.Text = isPaused ? "▶️" : "⏸";
+            isPaused = true;
+            PauseMenu.IsVisible = true;
+        }
 
-            if (!isPaused)
-                GenerateQuestion();
+        private void OnResumeClicked(object sender, EventArgs e)
+        {
+            isPaused = false;
+            PauseMenu.IsVisible = false;
+            //SetBackgroundGradient("#1D3557", "#1D3557");
+        }
+
+        private async void OnExitClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }
