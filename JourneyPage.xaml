@@ -49,9 +49,9 @@
                 FontFamily="Delfino"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Margin="40,20,10,10"/>
+                Margin="400,20,10,-200"/>
 
-                <!-- Canto superior direito (meio afastado) -->
+                <!-- Canto superior direito (meio afastado)
                 <Button Grid.Row="0" Grid.Column="1"
                 Text="Nível 2"
                 Clicked="OnMiniGame2Clicked"
@@ -63,9 +63,9 @@
                 FontFamily="Delfino"       
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Margin="10,20,40,10"/>
+                Margin="10,20,40,10"/> -->
 
-                <!-- Canto inferior esquerdo (meio afastado) -->
+                <!-- Canto inferior esquerdo (meio afastado)
                 <Button Grid.Row="1" Grid.Column="0"
                 Text="Nível 3"
                 Clicked="OnMiniGame3Clicked"
@@ -77,9 +77,9 @@
                 FontFamily="Delfino"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Margin="40,10,10,20"/>
+                Margin="40,10,10,20"/> -->
 
-                <!-- Canto inferior direito (meio afastado) -->
+                <!-- Canto inferior direito (meio afastado)
                 <Button Grid.Row="1" Grid.Column="1"
                 Text="Nível 4"
                 Clicked="OnMiniGame4Clicked"
@@ -91,7 +91,7 @@
                 FontFamily="Delfino"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Margin="10,10,40,20"/>
+                Margin="10,10,40,20"/> -->
             </Grid>
         </Frame>
 
