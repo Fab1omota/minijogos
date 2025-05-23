@@ -120,6 +120,6 @@ public partial class MiniJogo4 : ContentPage
 
     private async void OnCanvasClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("Canvas");
+        await Shell.Current.GoToAsync("CanvasPage");
     }
 }
