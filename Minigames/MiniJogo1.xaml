@@ -8,22 +8,23 @@
     <Grid x:Name="MainGrid" Padding="10">
         <Grid HorizontalOptions="Start" VerticalOptions="Start" Margin="5">
             <ImageButton x:Name="PauseButton"
-                         Source="pause.png"
+                         Source="Resources/Images/pausa.png"
                          BackgroundColor="Transparent"
                          WidthRequest="50"
                          HeightRequest="50"
                          HorizontalOptions="Start"
                          VerticalOptions="Start"
-                         Margin="5"
+                         Margin="10,10,0,0"
                          Clicked="OnPauseClicked"/>
         </Grid>
 
-        <!-- Pergunta e opções -->
         <Frame CornerRadius="20"
                Padding="20"
-               BackgroundColor="#1D3557"
+               BackgroundColor="Transparent"
                VerticalOptions="Center"
-               HorizontalOptions="Center">
+               HorizontalOptions="Center"
+               HasShadow="False"
+               BorderColor="Transparent">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -34,8 +35,8 @@
                 <Label x:Name="QuestionLabel"
                        FontSize="48"
                        FontAttributes="Bold"
-                       FontFamily="Fredoka"
-                       TextColor="White"
+                       FontFamily="Delfino"
+                       TextColor="Black"
                        HorizontalOptions="Center"
                        Margin="0,10" />
 
@@ -53,7 +54,7 @@
                     <HorizontalStackLayout Spacing="20">
                         <Button x:Name="OptionButton1"
                                 FontSize="36"
-                                FontFamily="Fredoka"
+                                FontFamily="Delfino"
                                 TextColor="White"
                                 BackgroundColor="#457B9D"
                                 CornerRadius="20"
@@ -62,7 +63,7 @@
                                 Clicked="OnAnswerClicked"/>
                         <Button x:Name="OptionButton2"
                                 FontSize="36"
-                                FontFamily="Fredoka"
+                                FontFamily="Delfino"
                                 TextColor="White"
                                 BackgroundColor="#457B9D"
                                 CornerRadius="20"
@@ -71,7 +72,25 @@
                                 Clicked="OnAnswerClicked"/>
                         <Button x:Name="OptionButton3"
                                 FontSize="36"
-                                FontFamily="Fredoka"
+                                FontFamily="Delfino"
+                                TextColor="White"
+                                BackgroundColor="#457B9D"
+                                CornerRadius="20"
+                                WidthRequest="120"
+                                HeightRequest="70"
+                                Clicked="OnAnswerClicked"/>
+                        <Button x:Name="OptionButton4"
+                                FontSize="36"
+                                FontFamily="Delfino"
+                                TextColor="White"
+                                BackgroundColor="#457B9D"
+                                CornerRadius="20"
+                                WidthRequest="120"
+                                HeightRequest="70"
+                                Clicked="OnAnswerClicked"/>
+                        <Button x:Name="OptionButton5"
+                                FontSize="36"
+                                FontFamily="Delfino"
                                 TextColor="White"
                                 BackgroundColor="#457B9D"
                                 CornerRadius="20"
@@ -80,18 +99,25 @@
                                 Clicked="OnAnswerClicked"/>
                     </HorizontalStackLayout>
 
+                    <Label x:Name="ScoreLabel"
+                           Text="Pontuação: 0"
+                           FontSize="35"
+                           FontFamily="Delfino"
+                           TextColor="Black"
+                           Margin="0,20,0,0"
+                           HorizontalOptions="Center" />
+                    
                     <Label x:Name="FeedbackLabel"
-                           FontSize="28"
-                           FontFamily="Fredoka"
-                           TextColor="Yellow"
+                           FontSize="45"
+                           FontFamily="Delfino"
+                           TextColor="Green"
                            HorizontalOptions="Center"
                            Margin="0,10"/>
                 </VerticalStackLayout>
             </Grid>
         </Frame>
 
-        <!-- Score final -->
-        <Frame x:Name="ScorePanel"
+        <Frame x:Name="ScorePanel" 
                CornerRadius="20"
                Padding="20"
                BackgroundColor="#F1FAEE"
@@ -102,38 +128,48 @@
                HasShadow="True"
                ZIndex="10">
 
-            <StackLayout Spacing="10">
+            <StackLayout x:Name="ScorePanelStack" Spacing="10">
                 <Label Text="🏆 Fim do Jogo!"
-                       FontSize="36"
-                       FontFamily="Fredoka"
+                       FontSize="30"
+                       FontFamily="Delfino"
                        TextColor="#1D3557"
                        HorizontalOptions="Center"/>
                 <Label x:Name="FinalScoreLabel"
                        FontSize="24"
-                       FontFamily="Fredoka"
+                       FontFamily="Delfino"
                        TextColor="#1D3557"
                        HorizontalOptions="Center"/>
                 <Label x:Name="HighScoresLabel"
                        FontSize="20"
-                       FontFamily="Fredoka"
+                       FontFamily="Delfino"
                        TextColor="#1D3557"
                        HorizontalOptions="Center"
                        Margin="0,10"/>
-                <Button Text="Jogar Novamente"
+                <Button x:Name ="RestartButton"  
+                        Text="Jogar Novamente"
                         Clicked="OnRestartClicked"
                         BackgroundColor="#457B9D"
                         TextColor="White"
-                        FontFamily="Fredoka"
+                        FontFamily="Delfino"
                         CornerRadius="20"/>
-                <Button Text="Limpar Highscores"
+                <Button x:Name="ClearHighScoresButton" 
+                        Text="Limpar Highscores"
                         Clicked="OnClearHighScoresClicked"
                         BackgroundColor="#E63946"
                         TextColor="White"
-                        FontFamily="Fredoka"
+                        FontFamily="Delfino"
                         CornerRadius="20"/>
+                <Button x:Name="ExitButton"
+                        Text="Sair"
+                        Clicked="OnExitClicked"
+                        BackgroundColor="#457B9D"
+                        TextColor="White"
+                        FontFamily="Delfino"
+                        CornerRadius="20"/>
+
             </StackLayout>
         </Frame>
-        
+
         <Frame x:Name="PauseMenu"
                CornerRadius="20"
                Padding="20"
@@ -145,23 +181,23 @@
                ZIndex="20">
 
             <StackLayout Spacing="20" HorizontalOptions="Center">
-                <Label Text="Parado"
+                <Label Text="Em pausa"
                        FontSize="36"
-                       FontFamily="Fredoka"
+                       FontFamily="Delfino"
                        TextColor="White"
                        HorizontalOptions="Center"/>
                 <Button Text="Retomar"
                         Clicked="OnResumeClicked"
                         BackgroundColor="#457B9D"
                         TextColor="White"
-                        FontFamily="Fredoka"
+                        FontFamily="Delfino"
                         CornerRadius="20"
                         WidthRequest="200"/>
                 <Button Text="Sair"
                         Clicked="OnExitClicked"
                         BackgroundColor="#E63946"
                         TextColor="White"
-                        FontFamily="Fredoka"
+                        FontFamily="Delfino"
                         CornerRadius="20"
                         WidthRequest="200"/>
             </StackLayout>
